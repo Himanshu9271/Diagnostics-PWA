@@ -1,6 +1,6 @@
 var CACHE_NAME = 'v1';
 var urlsToCache = [
-    '/images',
+    'images',
     'style.css',
     'main.js',
     'system-data.html'
