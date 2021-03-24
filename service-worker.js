@@ -4,7 +4,9 @@ var urlsToCache = [
     'index.html',
     'style.css',
     'main.js',
-    'system-data.html'
+    'system-data.html',
+    'system-state.html',
+    'systemDM.html'
 ];
 
 
