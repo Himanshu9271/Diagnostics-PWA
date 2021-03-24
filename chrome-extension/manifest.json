@@ -1,0 +1,10 @@
+{
+  "name": "Sys-Info",
+  "description": "gets system info",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions":["system.cpu","system.storage","system.memory","system.display"] 
+}
