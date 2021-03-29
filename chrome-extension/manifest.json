@@ -6,5 +6,11 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts":[
+    {
+      "matches":["http://127.0.0.1:*/system-data.html"],
+      "js":["contentScript.js"]
+    }
+  ],
   "permissions":["system.cpu","system.storage","system.memory","system.display"] 
 }
