@@ -1,32 +1,18 @@
 
-let getCpuInfo=()=>{
-    return new Promise(resolve=>{
-        chrome.system.cpu.getInfo((response)=>{
-            resolve(response);
-        });
-    });
-};
-chrome.runtime.onInstalled.addListener(()=>{
-    let foo;
-    chrome.system.cpu.getInfo((response)=>{
-        console.log(response);
-    })
+chrome.runtime.onInstalled.addListener(async ()=>{
+    console.log("Installed !!");
+    
 });
 
-chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log(sender.tab.url); 
+    let foo;
     if (request.greeting == "hello"){
-        const foo= new Promise((resolve)=>{
-            chrome.system.cpu.getInfo((response)=>{
-                resolve(response);
-            });
-        }).then((resolve)=>{
-            return resolve.processors;
-        });
-        
-        //setTimeout(()=>{sendResponse(foo);}, 5000);
-        sendResponse(foo);
-        console.log("Response Sent",foo);
+        chrome.system.cpu.getInfo( (response)=>{
+            
+            sendResponse(response.processors);
+            console.log(response.processors)
+        }); 
     }
     return true; 
 });
