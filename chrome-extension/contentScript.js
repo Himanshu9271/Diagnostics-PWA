@@ -61,7 +61,7 @@ function drawGraph() {
     
     chrome.runtime.sendMessage({greeting: "hello"},(response)=>{
         let T=response;
-        for(let i=0;i<response.length;i++){
+        for(let i=0;i<T.length;i++){
             if(utilPer[i]==undefined) utilPer[i]=0;
             if(utilTotal[i]==undefined) utilTotal[i]=0;
             if(usage[i]==undefined) usage[i]=0;
@@ -79,7 +79,7 @@ function drawGraph() {
         avg*=100;
         avg/=T.length;
         addData(myChart,avg);
-        console.log(usage,response);
+        //console.log(avg,T);
         
     });
 }
